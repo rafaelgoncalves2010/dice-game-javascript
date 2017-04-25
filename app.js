@@ -12,18 +12,23 @@ GAME RULES:
 
 var score, activePlayer, dice;
 
-document.querySelector('score-0').textContent=0;
-document.querySelector('score-1').textContent=0;
-
 activePlayer = 0;
+document.querySelector('#score-0').textContent='0';
+document.querySelector('#score-1').textContent='0';
 
-dice = document.querySelector('.btn-roll');
+document.querySelector('.dice').style.display = 'none';
 
-dice.addEventListener('click', function(){
+
+document.querySelector('.btn-roll').addEventListener('click', function(){
+	
 	
 	var sortedNumber = Math.floor(Math.random() *6) +1;
-    document.querySelector('.dice').src ='dice-'+sortedNumber+'.png';
-    document.querySelector('#current-'+ activePlayer).textContent= sortedNumber;
+    var dice = document.querySelector('.dice');
+    dice.src ='dice-'+sortedNumber+'.png';
+    dice.style.display = 'block';
+
+
+    document.querySelector('#current-'+ activePlayer).textContent += sortedNumber;
 
 });
 
